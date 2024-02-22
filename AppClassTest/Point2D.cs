@@ -9,9 +9,9 @@ namespace AppClassTest
   internal class Point2D: Point
   {
 		//Properties
-		private int y;
+		protected double y;
 
-		public int Y
+		public double Y
 		{
 			get { return y; }
 			set { y = value;}
@@ -22,7 +22,7 @@ namespace AppClassTest
 		{
       y = 0;
     }
-		public Point2D(int x, int y): base(x)
+		public Point2D(double x, double y): base(x)
 		{
       this.y = y;
     }
@@ -30,12 +30,16 @@ namespace AppClassTest
 		//Methods
 		public override string ToString()
 		{
-      return base.ToString() + ", Y: " + y;
+      return ""+ base.ToString() + ", " + y + "";
     }
 		public double GetDistance(Point2D p)
 		{
       return Math.Sqrt(Math.Pow(x - p.x, 2) + Math.Pow(y - p.y, 2));
     }
-
+		//Method to get the midpoint between two points
+		public Point2D GetMidPoint(Point2D p)
+		{
+      return new Point2D((x + p.x) / 2, (y + p.y) / 2);
+    }
 	}
 }

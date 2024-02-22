@@ -4,9 +4,9 @@ namespace AppClassTest
   internal class Point
   {
 		//Properties
-		protected int x;
+		protected double x;
 
-		public int X
+		public double X
 		{
 			get { return x; }
 			set { x = value; }
@@ -16,19 +16,25 @@ namespace AppClassTest
 		{
       x = 0;
     }
-		public Point(int x)
+		public Point(double x)
 		{
       this.x = x;
     }
 		//Methods
 		public override string ToString()
 		{
-			return "X: " + x;
+			return "" + x;
 		}
-		public int GetDistance(Point p)
+		public double GetDistance(Point p)
 		{
       return Math.Abs( x - p.x);
     }
+    //Method to get the midpoint between two points
+		public Point GetMidPoint(Point p)
+		{
+      return new Point((x + p.x) / 2);
+    }
 
-	}
+
+  }
 }
